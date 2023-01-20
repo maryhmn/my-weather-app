@@ -47,8 +47,8 @@ body {
   line-height: 20px;
   list-style: none;
   margin-bottom: 5px;
+  text-transform: capitalize;
 }
-
 .weatherApp li strong {
   color: #f65282;
   font-weight: 400;
