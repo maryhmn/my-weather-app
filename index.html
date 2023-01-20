@@ -11,7 +11,7 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
-
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
     <title>Weather App</title>
   </head>
@@ -44,19 +44,25 @@
         <div class="weatherInfo">
           <div class="row">
             <div class="col-6">
-              <h1>Tehran</h1>
+              <h1><span id="city-name"></span></h1>
               <ul>
-                <li><span>Friday 10:00</span> , <span>sunny</span></li>
                 <li>
-                  <span>Humidity: <strong>30%</strong> </span> ,
-                  <span>Wind: <strong>10</strong></span>
+                  <span>Friday 10:00</span> ,
+                  <span id="description"></span>
+                </li>
+                <li>
+                  <span
+                    >Humidity: <strong><span id="humid"></span>%</strong>
+                  </span>
+                  ,
+                  <span>Wind: <strong id="speed"></strong></span>
                 </li>
               </ul>
             </div>
             <div class="col-6">
               <span class="d-inline-flex temperature">
                 <img src="src/clear-sky-day.png" alt="clear-sky-day" />
-                <span class="temperatureValue" id="temperature"> 14</span>
+                <span class="temperatureValue" id="temperature"> </span>
                 <span class="unit"
                   >°<span> C</span> | <span>F</span></span
                 ></span
