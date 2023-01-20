@@ -37,8 +37,14 @@ function showTempreture(response) {
   document.querySelector("#currentDate").innerHTML = formatDate(
     response.data.time * 1000
   );
+  document
+    .querySelector("#icon")
+    .setAttribute("src", response.data.condition.icon_url);
+  document
+    .querySelector("#icon")
+    .setAttribute("alt", response.data.condition.icon);
 }
-let query = "Lisbon";
+let query = "Tehran";
 let apiKey = "0caf272471db66c8o23f540fe4caba4t";
 let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${query}&key=${apiKey}&units=metric`;
 axios.get(apiUrl).then(showTempreture);

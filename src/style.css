@@ -59,6 +59,7 @@ body {
 .weatherApp .temperature img {
   position: relative;
   top: -10px;
+  padding-right: 10px;
 }
 .weatherApp .temperatureValue {
   color: #212121;
