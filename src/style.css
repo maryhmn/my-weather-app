@@ -2,7 +2,9 @@ body {
   font-family: Cerebri-Sans, Helvetica, Arial, sans-serif;
   background: #f9f7fe;
 }
-
+a {
+  text-decoration: none;
+}
 .weatherApp {
   margin: 60px auto;
   max-width: 800px;
@@ -75,6 +77,10 @@ body {
   line-height: 1;
   position: relative;
   top: 5px;
+}
+.weatherApp .active {
+  color: #212121;
+  cursor: default;
 }
 .weatherApp p {
   font-size: 14px;
