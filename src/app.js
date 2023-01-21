@@ -69,6 +69,30 @@ function showCelsius(event) {
   document.querySelector("#temperature").innerHTML =
     Math.round(celsiusTempareture);
 }
+function showForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHtml = `<div class="row">`;
+  let days = ["Sun", "Mon", "Tue", "Wed"];
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `
+            <div class="col-2">
+              <div class="forcastday">${day}</div>
+              <img src="src/clear-sky-day.png" alt="" width="50" />
+              <div class="forcast-temperature">
+                <span class="forcast-temperature-max">18</span>°<span
+                  class="forcast-temperature-min"
+                  >10</span
+                >°
+              </div>
+            </div>
+          `;
+  });
+
+  forecastHtml = forecastHtml + `</div>`;
+  forecastElement.innerHTML = forecastHtml;
+}
 celsiusTempareture = null;
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheit);
@@ -76,3 +100,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsius);
 document.querySelector("#search-form").addEventListener("submit", handleSubmit);
 search("Tehran");
+showForecast();
