@@ -34,7 +34,6 @@ function getforecast(city) {
   https: axios.get(apiUrl).then(showForecast);
 }
 function showTempreture(response) {
-  celsiusTempareture = response.data.temperature.current;
   document.querySelector("#city-name").innerHTML = response.data.city;
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.temperature.current
@@ -68,20 +67,6 @@ function handleSubmit(event) {
   let city = document.querySelector("#search-input").value;
   search(city);
 }
-function showFahrenheit(event) {
-  event.preventDefault();
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  fahrenheitTemp = (celsiusTempareture * 9) / 5 + 32;
-  document.querySelector("#temperature").innerHTML = Math.round(fahrenheitTemp);
-}
-function showCelsius(event) {
-  event.preventDefault();
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  document.querySelector("#temperature").innerHTML =
-    Math.round(celsiusTempareture);
-}
 function showForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
@@ -112,10 +97,5 @@ function showForecast(response) {
   forecastHtml = forecastHtml + `</div>`;
   forecastElement.innerHTML = forecastHtml;
 }
-celsiusTempareture = null;
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", showFahrenheit);
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", showCelsius);
 document.querySelector("#search-form").addEventListener("submit", handleSubmit);
 search("Tehran");
