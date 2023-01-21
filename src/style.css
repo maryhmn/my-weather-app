@@ -8,6 +8,7 @@ a {
 .weatherApp {
   margin: 60px auto;
   max-width: 800px;
+  min-width: 600px;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 30px 50px rgb(65 50 100 / 8%);
@@ -85,4 +86,25 @@ a {
 .weatherApp p {
   font-size: 14px;
   text-align: center;
+}
+.weather-forcast {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.weather-forcast .forcastday {
+  color: rgba(39, 33, 66, 0.6);
+  font-size: 16px;
+  line-height: 20px;
+}
+.weather-forcast .forcast-temperature {
+  color: #f65282;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.weather-forcast .forcast-temperature-min {
+  margin-left: 10px;
+  opacity: 0.6;
 }
