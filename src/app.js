@@ -22,7 +22,6 @@ function formatDate(timestamp) {
   return `${day} ${hour}:${minute}`;
 }
 function showTempreture(response) {
-  console.log(response.data);
   document.querySelector("#city-name").innerHTML = response.data.city;
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.temperature.current
@@ -44,7 +43,17 @@ function showTempreture(response) {
     .querySelector("#icon")
     .setAttribute("alt", response.data.condition.icon);
 }
-let query = "Tehran";
-let apiKey = "0caf272471db66c8o23f540fe4caba4t";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${query}&key=${apiKey}&units=metric`;
-axios.get(apiUrl).then(showTempreture);
+function search(city) {
+  let query = city;
+  let apiKey = "0caf272471db66c8o23f540fe4caba4t";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${query}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTempreture);
+}
+function handleSubmit(event) {
+  event.preventDefault();
+  let city = document.querySelector("#search-input").value;
+  search(city);
+}
+
+document.querySelector("#search-form").addEventListener("submit", handleSubmit);
+search("Tehran");
