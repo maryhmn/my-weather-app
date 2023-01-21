@@ -50,6 +50,8 @@ a {
   line-height: 20px;
   list-style: none;
   margin-bottom: 5px;
+}
+.dsc {
   text-transform: capitalize;
 }
 .weatherApp li strong {
@@ -58,6 +60,7 @@ a {
 }
 .weatherApp .temperature {
   margin-top: 35px;
+  margin-left: 35px;
 }
 .weatherApp .temperature img {
   position: relative;
