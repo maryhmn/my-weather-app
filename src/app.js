@@ -21,6 +21,12 @@ function formatDate(timestamp) {
   }
   return `${day} ${hour}:${minute}`;
 }
+function getforecast(city) {
+  let query = city;
+  let apiKey = "0caf272471db66c8o23f540fe4caba4t";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${query}&key=${apiKey}&units=metric`;
+  https: axios.get(apiUrl).then(showForecast);
+}
 function showTempreture(response) {
   celsiusTempareture = response.data.temperature.current;
   document.querySelector("#city-name").innerHTML = response.data.city;
@@ -43,6 +49,7 @@ function showTempreture(response) {
   document
     .querySelector("#icon")
     .setAttribute("alt", response.data.condition.icon);
+  getforecast(response.data.city);
 }
 function search(city) {
   let query = city;
@@ -69,7 +76,8 @@ function showCelsius(event) {
   document.querySelector("#temperature").innerHTML =
     Math.round(celsiusTempareture);
 }
-function showForecast() {
+function showForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let forecastHtml = `<div class="row">`;
   let days = ["Sun", "Mon", "Tue", "Wed"];
@@ -100,4 +108,3 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsius);
 document.querySelector("#search-form").addEventListener("submit", handleSubmit);
 search("Tehran");
-showForecast();
